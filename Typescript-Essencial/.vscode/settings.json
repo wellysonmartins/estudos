@@ -1,0 +1,9 @@
+{
+  "code-runner.executorMap": {
+    "typescript": "npx ts-node --transpile-only",
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.fixAll.eslint": true
+  },
+}
