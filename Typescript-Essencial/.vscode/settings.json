@@ -1,6 +1,6 @@
 {
   "code-runner.executorMap": {
-    "typescript": "npx ts-node --transpile-only",
+    "typescript": "npx ts-node --files",
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports": true,
