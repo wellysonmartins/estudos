@@ -14,13 +14,13 @@ let arrayDeStrings: Array<string> = ['a', 'b', 'c'];
 let arrayDeStrings2: string[] = ['a', 'b', 'c'];
 
 // objetos
-let pessoa: {
+let pessoa1: {
   nome: string,
   idade: number,
   adulto?: boolean
 };
 
-pessoa = {
+pessoa1 = {
   idade: 30,
   nome: 'Wellyson'
 };
