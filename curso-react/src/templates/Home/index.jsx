@@ -1,24 +1,22 @@
-import "./styles.css";
-import { useCallback, useEffect, useState } from "react";
-import { Posts } from "../../components/Posts";
-import { loadPosts } from "../../utils/load-posts";
-import { Button } from "../../components/Button";
-import { TextInput } from "../../components/TextInput";
+import './styles.css';
+import { useCallback, useEffect, useState } from 'react';
+import { Posts } from '../../components/Posts';
+import { loadPosts } from '../../utils/load-posts';
+import { Button } from '../../components/Button';
+import { TextInput } from '../../components/TextInput';
 
-export const Home = () => {
+const Home = () => {
   const [posts, setPosts] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
   const [page, setPage] = useState(0);
-  const [postsPerPage] = useState(4);
-  const [searchValue, setSearchValue] = useState("");
+  const [postsPerPage] = useState(12);
+  const [searchValue, setSearchValue] = useState('');
 
   const noMorePosts = page + postsPerPage >= allPosts.length;
 
-  const filterPosts = !!searchValue
+  const filterPosts = searchValue
     ? allPosts.filter((post) => {
-        return post.title
-          .toLowerCase()
-          .includes(searchValue.toLocaleLowerCase());
+        return post.title.toLowerCase().includes(searchValue.toLocaleLowerCase());
       })
     : posts;
 
@@ -56,21 +54,9 @@ export const Home = () => {
         <TextInput searchValue={searchValue} handleChange={handleChange} />
       </div>
 
-      {filterPosts.length > 0 ? (
-        <Posts posts={filterPosts} />
-      ) : (
-        <p>Não existem posts =(</p>
-      )}
+      {filterPosts.length > 0 ? <Posts posts={filterPosts} /> : <p>Não existem posts =(</p>}
 
-      <div className="button-container">
-        {!searchValue && (
-          <Button
-            disabled={noMorePosts}
-            onClick={loadMorePosts}
-            text="Load more posts"
-          />
-        )}
-      </div>
+      <div className="button-container">{!searchValue && <Button disabled={noMorePosts} onClick={loadMorePosts} text="Load more posts" />}</div>
     </section>
   );
 };
